@@ -1,15 +1,21 @@
 // how to hangman
 $(document).ready(function() {
 
+    // top 100 or so movies off imdb
+    // some titles were skipped due to wierd syntax
+    movieChoices = ["The Shawshank Redemption", "The Godfather", "The Dark Knight", "Pulp Fiction", "Schindler's List", "The Lord of the Rings", "The Good, the Bad and the Ugly", "Inception", "Forrest Gump", "Fight Club", "Star Wars", "Goodfellas", "The Matrix", "One Flew Over the Cuckoo's Nest", "Seven Samurai", "Avengers: Infinity War", "Interstellar", "The Silence of the Lambs", "Saving Private Ryan", "The Usual Suspects", "Spirited Away", "City of God", "Life is Beautiful", "It's a Wonderful Life", "The Green Mile", "The Departed", "The Lion King", "Gladiator", "Whiplash", "Back to the Future", "Psycho", "The Prestige", "Alien", "The Intouchables", "Memento", "Raiders of the Lost Ark", "Apocalypse Now", "Terminator", "Once Upon a Time in the West", "American History X", "The Pianist", "Casablanca", "Rear Window", "Dangal", "Grave of the Fireflies", "Cinema Paradiso", "Sunset Boulevard", "Modern Times", "The Great Dictator", "City Lights", "A Star is Born", "The Shining", "Coco", "The Dark Knight Rises", "Once Upon a Time in America", "American Beauty", "Django Unchained", "Aliens", "Braveheart", "Your Name", "Oldboy", "The Lives of Others", "Das Boot", "Wall-E", "Citizen Kane", "Princess Mononoke", "Like Stars on Earth", "M", "Paths of Glory", "Witness for the Prosecution", "My Father and My Son", "Inglourious Basterds", "A Clockwork Orange", "Batman Begins", "Good Will Hunting", "Scarface", "Requiem for a Dream", "Taxi Driver", "Full Metal Jacket", "Eternal Sunshine of the Spotless Mind", "Snatch", "Reservoir Dogs", "Up", "Monty Python and the Holy Grail", "Indiana Jones and the Last Crusade", "Toy Story", "The Hunt", "The Sting", "Amadeus", "Amelie", "LA Confidential", "Vertigo", "To Kill a Mockingbird", "Lawrence of Arabia", "For a Few Dollars More", "Some Like It Hot", "Metropolis", "North by Northwest", "Singin in the Rain", "A Separation", "Double Indemnity", "All About Eve", "The Apartment", "Rashomon", "Children of Heaven", "Bicycle Thieves", "Yojimbo", "Ikiru", "The Kid", "The Treasure of the Sierra Madre", "The Bandit", "The Wolf of Wall Street"];
+
+    
+    // Artists and rock bands all time
+    artists = ["The Beatles", "Madonna", "Elton John", "Elvis Presley", "Mariah Carey", "Stevie Wonder", "Janet Jackson", "Michael Jackson", "Whitney Houston", "Rihanna", "The Rolling Stones", "Paul McCartney", "Bee Gees", "Usher", "Chicago", "The Supremes", "Prince", "Rod Stewart", "Drake", "Aretha Franklin", "Marvin Gaye", "Taylor Swift", "Katy Perry", "Phil Collins", "Billy Joel", "Diana Ross", "The Temptations", "Donna Summer", "The Beach Boys", "Lionel Richie", "Bruno Mars", "Neil Diamond", "Carpenters", "The Jacksons",  "Beyonce", "Kenny Rogers", "Barbra Streisand", "Bryan Adams", "Cher", "George Michael", "The Black Eyed Peas", "Pink", "Bobby Vinton", "John Mellencamp", "Gloria Estefan", "Bon Jovi", "Ray Charles", "Foreigner", "Chris Brown", "Duran Duran", "Justin Timberlake", "Commodores", "Eagles", "Lady Gaga", "TLC", "Paul Anka", "Barry Manilow", "Heart", "Nelly", "James Brown", "Paula Abdul", "Eminem", "Alicia Keys", "Kelly Clarkson", "Starship", "Kanye West", "Celine Dion", "Bob Seger", "Fleetwood Mac", "Justin Bieber", "Bruce Springsteen", "John Denver", "Pearl Jam", "Nirvana", "Eddie Vedder", "Metallica", "Bob Dylan", "Queen", "Jimi Hendrix", "Pink Floyd", "The Who", "Neil Young", "David Bowie", "Foo Fighters", "Led Zeppelin", "Red Hot Chili Peppers", "Black Sabbath", "The Doors", "Green Day", "Creedence Clearwater Revival", "Aerosmith", "Ramones", "Lynyrd Skynyrd", "Jefferson Airplane", "Smashing Pumpkins", "Kings of Leon", "Kiss", "The Sex Pistols", "Janis Joplin", "The Clash", "Arcade Fire", "The Strokes", "Soundgarden", "Rage Against the Machine", "Radiohead", "Alice in Chains", "Iggy Pop", "Eric Clapton", "The Killers", "Deep Purple", "ZZ Top", "Nine Inch Nails", "Megadeth", "Joan Jett", "Depeche Mode", "Stone Temple Pilots", "Van Halen", "Tears for Fears", "System of a Down", "Johnny Cash", "Iron Maiden", "Tom Petty", "The White Stripes", "Rush", "Slipknot", "Linkin Park", "Pixies", "The Kinks", "Blondie", "INXS", "Arctic Monkeys", "Weezer", "Oasis", "Blur", "Morrissey", "The Cranberries", "The Black Keys", "Sublime", "The Offspring", "Alice Cooper", "Talking Heads", "Gorillaz", "Carlos Santana", "Queens of the Stone Age", "Sting", "Eagles", "Boston", "The Cure", "Franz Ferdinand", "Bush"]
+
+
+
+    // WORLD CAPITALS!!!
+
+
 })
-    // we are going to have 3 set topics which you can choose at start of round
-    // each topic is an array
-
-    // topics
-    // movies [top 250 off imdb]
-    // bands [top 500 billboard artists]
-    // world capitals [idk how many there are]
-
+    
 
     // var userChoice = event.click.topicsChoice???
     // from userChoice, java chooses random floor number based from 0-topicChoice.length
