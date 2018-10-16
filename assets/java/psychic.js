@@ -44,7 +44,7 @@ $(document).ready(function() {
             // score is updated with a win.
             $("#winRecord").html(wins);
         }
-    }
+    })
 
 // How do I start a new round? I've tried putting following code in the win/loss conditions to no avail.
 
