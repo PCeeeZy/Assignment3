@@ -17,7 +17,7 @@ $(document).ready(function() {
 
     // Click Movies button and computer chooses movie
     $("#movies").on("click", function(getMovies) {
-        var randomNumber = Math.floor(Math.random() * movies.length) + 1;
+        var randomNumber = Math.floor(Math.random() * movies.length);
         var compWord = movies[randomNumber];
         console.log(compWord);
     })
@@ -25,19 +25,28 @@ $(document).ready(function() {
 
     // Click artists button and computer chooses movie
     $("#artists").on("click", function(getArtists) {
-        var randomNumber = Math.floor(Math.random() * artists.length) + 1;
+        var randomNumber = Math.floor(Math.random() * artists.length);
         var compWord = artists[randomNumber];
         console.log(compWord);
     })
 
     // Click artists button and computer chooses movie
     $("#capitals").on("click", function(getCapitals) {
-        var randomNumber = Math.floor(Math.random() * capitals.length) + 1;
+        var randomNumber = Math.floor(Math.random() * capitals.length);
         var compWord = capitals[randomNumber];
         console.log(compWord);
     })
     
+    // TEST REALM.  SMALL ARRAY TO CREATE WORKING CONDITIONS with Strange Syntax
 
+    testRealm = ["baby", "baby driver", "it's baby driver", "baby & driver"];
+
+
+    $("#testRealm").on("click", function(getTest) {
+        var randomNumber = Math.floor(Math.random() * testRealm.length);
+        var compWord = testRealm[randomNumber];
+        console.log(compWord);
+    })
 
 
 

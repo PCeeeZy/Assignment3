@@ -19,6 +19,17 @@ $(document).ready(function() {
     var wins = 0;
     var losses = 0;
 
+    // Setting up reset capabilities
+
+    $("#newRound").on("click", function(getLetter) {
+        wrongGuess = 0;
+        var randomNumber = Math.floor(Math.random() * letters.length) + 1;
+        var compLetter = letters[randomNumber];
+        console.log(randomNumber);
+        console.log(compLetter);
+    })
+
+
     // What happens when you press a key?
     document.onkeyup = function(keyInput) {
 
@@ -35,6 +46,7 @@ $(document).ready(function() {
                 alert("You are not psychic!");
                 losses ++;
                 $("#lossRecord").html(losses);
+                alert("Click the new round button to start a new round!");
             }
         }
         // if you guess right
@@ -43,6 +55,7 @@ $(document).ready(function() {
             wins ++;
             // score is updated with a win.
             $("#winRecord").html(wins);
+            alert("Click the new round button to start a new round!");
         }
     }
 })
