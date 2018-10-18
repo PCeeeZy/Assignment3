@@ -14,6 +14,31 @@ $(document).ready(function() {
     // WORLD CAPITALS!!!
     capitals = ["Kabul", "Tirana", "Algiers", "Andorra la Vella", "Luanda", "Saint Johns", "Buenos Aires", "Yerevan", "Canberra", "Vienna", "Baku", "Nassau", "Manama", "Dhaka", "Bridgetown", "Minsk", "Brussels", "Belmoran", "Porto Novo", "Thimphu", "Sucre", "Sarajevo", "Gaborone", "Brasilia", "Bandar Seri Begawan", "Sofia", "Ouagadougou", "Bujumbura", "Praia", "Phnom Penh", "Yaounde", "Ottawa", "Bangui", "Ndjamena", "Santiago", "Beijing", "Bogota", "Moroni", "Kinshasa", "San Jose", "Yamoussoukro", "Zagreb", "Havana", "Nicosia", "Prague", "Copenhagen", "Djibouti", "Roseau", "Santo Domingo", "Quito", "Cairo", "San Salvador", "Malabo", "Asmara", "Tallinn", "Addis Ababa", "Palikir", "Suva", "Helsinki", "Paris", "Libreville", "Banjul", "Tbilisi", "Berlin", "Accra", "Athens", "Saint Georges", "Guatemala City", "Conakry", "Bissau", "Georgetown", "Port Au Prince", "Tegucigalpa", "Budapest", "Reykjavik", "New Delhi", "Jakarta", "Tehran", "Baghdad", "Dublin", "Jerusalem", "Rome", "Kingston", "Tokyo", "Amman", "Astana", "Nairobi", "South Tarawa", "Pristina", "Kuwait City", "Bishkek", "Vientiane", "Riga", "Beirut", "Maseru", "Monrovia", "Tripoli", "Vaduz", "Vilnius", "Luxemburg", "Skopje", "Antananarivo", "Lilongwe", "Kuala Lumpur", "Male", "Bamako", "Valleta", "Majuro", "Nouakchott", "Port Louis", "Mexico City", "Chisinau", "Monaco", "Ulaanbaatar", "Podgorica", "Rabat", "Maputo", "Nay Pyi Taw", "Windhoek", "Yaren District", "Kathmandu", "Amsterdamn", "Wellington", "Managua", "Niamey", "Abuja", "Pyongyang", "Oslo", "Muscat", "Islamabad", "Ngerulmud", "Jerusalem", "Panama City", "Port Moresby", "Asuncion", "Lima", "Manila", "Warsaw", "Lisbon", "Doha", "Brazzaville", "Bucharest", "Moscow", "Kigali", "Basseterre", "Castries", "Kingstown", "Apia", "San Marino", "Sao Tome", "Riyadh", "Dakar", "Belgrade", "Victoria", "Freetown", "Singapore", "Bratislava", "Ljubljana", "Honaira", "Mogadishu", "Bloemfontein", "Cape Town", "Seoul", "Juba", "Madrid", "Colombo", "Khartoum", "Paramaribo", "Mbabane", "Stockholm", "Bern", "Damascus", "Dushanbe", "Dodoma", "Bangkok", "Dili", "Lome", "Nukualofa", "Port of Spain", "Tunis", "Ankara", "Ashgabat", "Funafuti", "Kampala", "Kiev", "Abu Dhabi", "London", "Washington DC", "Montevideo", "Tashkent", "Port Vila", "Vatican City", "Caracas", "Hanoi", "Sanaa", "Lusaka", "Harare"];
 
+    $("#movies").hide("fast", function() {
+
+    });
+    $("#capitals").hide("fast", function() {
+
+    });
+    $("#artists").hide("fast", function() {
+
+    });
+
+
+
+    $("#startGame").on("click", function(showTopics) {
+        
+        $("#movies").show("fast", function() {
+
+        });
+        $("#capitals").show("fast", function() {
+
+        });
+        $("#artists").show("fast", function() {
+
+        });
+    })
+
 
     // Click Movies button and computer chooses movie
     $("#movies").on("click", function(getMovies) {

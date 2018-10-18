@@ -6,69 +6,56 @@ $(document).ready(function() {
     // var letters = [a,b,c,...z]
     var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-    // random number chosen
-    var randomNumber = Math.floor(Math.random() * letters.length) + 1;
-    console.log(randomNumber);
-
-    // number chosen and computer's letter is assigned
-    var compLetter = letters[randomNumber];
-    console.log(compLetter);
-    
     // GLOBAL VARIABLES
     var wrongGuess = 0;
     var wins = 0;
     var losses = 0;
+    var newRound = false;
+    // var compLetter = "";
+    // var userGuess = "";
 
-    // Setting up reset capabilities
+
+    // START GAME
 
     $("#newRound").on("click", function(getLetter) {
         wrongGuess = 0;
-        var randomNumber = Math.floor(Math.random() * letters.length) + 1;
+        var randomNumber = Math.floor(Math.random() * letters.length);
         var compLetter = letters[randomNumber];
         console.log(randomNumber);
         console.log(compLetter);
-    })
-
-
-    // What happens when you press a key?
-    document.onkeyup = function(keyInput) {
-
-        // key is pressed and assigned as userGuess
-        var userGuess = keyInput.key;
-
-        // if statement.  This is a wrong guess
-        if (userGuess !== compLetter) {
-            wrongGuess ++;
-            alert("Wrong!");
-
-            // too many wrong guesses and the score is updated to reflect a loss.
-            if (wrongGuess >= "9") {
-                alert("You are not psychic!");
-                losses ++;
-                $("#lossRecord").html(losses);
-                alert("Click the new round button to start a new round!");
+        newRound = true;
+        if (newRound = true) {
+            // What happens when you press a key
+            document.onkeyup = function(keyInput) {
+    
+                // key is pressed and assigned as userGuess
+                var userGuess = keyInput.key;
+    
+                // Wrong Guess condition
+                if (userGuess !== compLetter) {
+                    wrongGuess ++;
+                    alert("Wrong!");
+    
+                    // Loss condition
+                    if (wrongGuess >= "9") {
+                        alert("You are not psychic!");
+                        losses ++;
+                        // losses score is updated.  Round is over
+                        $("#lossRecord").html(losses);
+                        alert("Click the new round button to start a new round!");
+                        newRound = false;
+                    }
+                // Win condition
+                else {
+                    alert("Way to go! You guessed " + userGuess + " and so did the computer!");
+                    wins ++;
+                    // score is updated with a win. Round is over
+                    $("#winRecord").html(wins);
+                    alert("Click the new round button to start a new round!");
+                    newRound = false;
+                    }
+                }
             }
         }
-        // if you guess right
-        else {
-            alert("Way to go! You guessed " + userGuess + " and so did the computer!");
-            wins ++;
-            // score is updated with a win.
-            $("#winRecord").html(wins);
-            alert("Click the new round button to start a new round!");
-        }
-    }
+    })
 })
-
-// How do I start a new round? I've tried putting following code in the win/loss conditions to no avail.
-
-//         var randomNumber = Math.floor(Math.random() * letters.length) + 1;
-//         console.log(randomNumber);
-    
-//         var compLetter = letters[randomNumber];
-//         console.log(compLetter);
-
-//     }
-// })
-
-
