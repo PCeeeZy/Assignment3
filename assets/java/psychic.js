@@ -45,6 +45,10 @@ $(document).ready(function() {
                 if (wrongGuess === 9) {
                     alert("You are not psychic!");
                     losses ++;
+                    // tried to get wrong letters to update html side, doesnt work
+                    // will return to later
+                    // $("#wrongLetters").html.append(keyInput.key);
+
                     // losses score is updated.  Round is over
                     $("#lossRecord").html(losses);
                     alert("Click the new round button to start a new round!");
