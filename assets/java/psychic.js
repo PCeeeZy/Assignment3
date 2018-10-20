@@ -7,53 +7,48 @@ $(document).ready(function() {
     var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
     // GLOBAL VARIABLES
-    var wrongGuess = 0;
     var wins = 0;
     var losses = 0;
     var newRound = false;
-    // var compLetter = "";
-    // var userGuess = "";
-
 
     // START GAME
 
     $("#newRound").on("click", function(getLetter) {
-        wrongGuess = 0;
+        var wrongGuess = 0;
         var randomNumber = Math.floor(Math.random() * letters.length);
         var compLetter = letters[randomNumber];
         console.log(randomNumber);
         console.log(compLetter);
         newRound = true;
-        if (newRound = true) {
-            // What happens when you press a key
-            document.onkeyup = function(keyInput) {
-    
-                // key is pressed and assigned as userGuess
-                var userGuess = keyInput.key;
-    
-                // Wrong Guess condition
-                if (userGuess !== compLetter) {
-                    wrongGuess ++;
-                    alert("Wrong!");
-    
-                    // Loss condition
-                    if (wrongGuess >= "9") {
-                        alert("You are not psychic!");
-                        losses ++;
-                        // losses score is updated.  Round is over
-                        $("#lossRecord").html(losses);
-                        alert("Click the new round button to start a new round!");
-                        newRound = false;
-                    }
-                // Win condition
-                else {
-                    alert("Way to go! You guessed " + userGuess + " and so did the computer!");
-                    wins ++;
-                    // score is updated with a win. Round is over
-                    $("#winRecord").html(wins);
+
+    // What happens when you press a key
+        document.onkeyup = function(keyInput) {
+
+            // key is pressed and assigned as userGuess
+            var userGuess = keyInput.key;
+            
+            // Win condition
+            if (userGuess === compLetter) {
+                alert("Way to go! You guessed " + userGuess + " and so did the computer!");
+                wins ++;
+                // score is updated with a win. Round is over
+                $("#winRecord").html(wins);
+                alert("Click the new round button to start a new round!");
+                newRound = false;
+                }
+            // Wrong Guess condition
+            else {
+                wrongGuess ++;
+                alert("Wrong!");
+
+                // Loss condition
+                if (wrongGuess === 9) {
+                    alert("You are not psychic!");
+                    losses ++;
+                    // losses score is updated.  Round is over
+                    $("#lossRecord").html(losses);
                     alert("Click the new round button to start a new round!");
                     newRound = false;
-                    }
                 }
             }
         }
