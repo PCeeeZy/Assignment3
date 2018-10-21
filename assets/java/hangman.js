@@ -11,9 +11,60 @@ $(document).ready(function() {
     // WORLD CAPITALS!!!
     capitals = ["Kabul", "Tirana", "Algiers", "Andorra la Vella", "Luanda", "Saint Johns", "Buenos Aires", "Yerevan", "Canberra", "Vienna", "Baku", "Nassau", "Manama", "Dhaka", "Bridgetown", "Minsk", "Brussels", "Belmoran", "Porto Novo", "Thimphu", "Sucre", "Sarajevo", "Gaborone", "Brasilia", "Bandar Seri Begawan", "Sofia", "Ouagadougou", "Bujumbura", "Praia", "Phnom Penh", "Yaounde", "Ottawa", "Bangui", "Ndjamena", "Santiago", "Beijing", "Bogota", "Moroni", "Kinshasa", "San Jose", "Yamoussoukro", "Zagreb", "Havana", "Nicosia", "Prague", "Copenhagen", "Djibouti", "Roseau", "Santo Domingo", "Quito", "Cairo", "San Salvador", "Malabo", "Asmara", "Tallinn", "Addis Ababa", "Palikir", "Suva", "Helsinki", "Paris", "Libreville", "Banjul", "Tbilisi", "Berlin", "Accra", "Athens", "Saint Georges", "Guatemala City", "Conakry", "Bissau", "Georgetown", "Port Au Prince", "Tegucigalpa", "Budapest", "Reykjavik", "New Delhi", "Jakarta", "Tehran", "Baghdad", "Dublin", "Jerusalem", "Rome", "Kingston", "Tokyo", "Amman", "Astana", "Nairobi", "South Tarawa", "Pristina", "Kuwait City", "Bishkek", "Vientiane", "Riga", "Beirut", "Maseru", "Monrovia", "Tripoli", "Vaduz", "Vilnius", "Luxemburg", "Skopje", "Antananarivo", "Lilongwe", "Kuala Lumpur", "Male", "Bamako", "Valleta", "Majuro", "Nouakchott", "Port Louis", "Mexico City", "Chisinau", "Monaco", "Ulaanbaatar", "Podgorica", "Rabat", "Maputo", "Nay Pyi Taw", "Windhoek", "Yaren District", "Kathmandu", "Amsterdamn", "Wellington", "Managua", "Niamey", "Abuja", "Pyongyang", "Oslo", "Muscat", "Islamabad", "Ngerulmud", "Jerusalem", "Panama City", "Port Moresby", "Asuncion", "Lima", "Manila", "Warsaw", "Lisbon", "Doha", "Brazzaville", "Bucharest", "Moscow", "Kigali", "Basseterre", "Castries", "Kingstown", "Apia", "San Marino", "Sao Tome", "Riyadh", "Dakar", "Belgrade", "Victoria", "Freetown", "Singapore", "Bratislava", "Ljubljana", "Honaira", "Mogadishu", "Bloemfontein", "Cape Town", "Seoul", "Juba", "Madrid", "Colombo", "Khartoum", "Paramaribo", "Mbabane", "Stockholm", "Bern", "Damascus", "Dushanbe", "Dodoma", "Bangkok", "Dili", "Lome", "Nukualofa", "Port of Spain", "Tunis", "Ankara", "Ashgabat", "Funafuti", "Kampala", "Kiev", "Abu Dhabi", "London", "Washington DC", "Montevideo", "Tashkent", "Port Vila", "Vatican City", "Caracas", "Hanoi", "Sanaa", "Lusaka", "Harare"];
 
-    // Global Variables
+    // TEST REALM.  SMALL ARRAY TO CREATE WORKING CONDITIONS with Strange Syntax
+    testRealm = ["baby", "baby driver", "it's baby driver", "baby & driver"];
+
+    // *******************************End of Arrays********************************************
+
+
+    // ******************************Some useful Variables*************************************
+
+    // so comp chooses word.  i then create a for loop that takes word and for the length of  (word)string.length? each letter is placed into wordArray that contains ["e", "x", "a", "m", "p", "l", "e"] as well as an underscoreArray that is ["_", "_", "_", "_", "_", "_", ]
+
+
+    // variables needed:
+    // Wins=0
+    var wins = 0;
+
+    // losses=0
+    var losses = 0;
+
+    // remainingWrong-----incorrect guesses remaining----Start at 8
+    var remainingWrong = 8;
+
+    // compWord---is set to be a string and converts all letters to uppercase.
     var compWord = "";
-    
+    var userGuess = ""
+
+    // userWord---used to compare against compWord.
+    var userWord = "";
+    // IF compWord is === to userWord we have win state. wins++. also turn gameState back to false
+    // IF wrongLetters === 0, we have loss state.  losses++.  also turn gameState back to false
+
+
+    var wordArray = [];
+    // var underSArray = function(operationUnderscore) {
+    //     for ( k = 0 ; k < wordArray.length; k++) {
+    //         underSArray[k].push(wordArray[k]);
+    //         underSArray[k].replace(/[^a-zA-Z]/g,'-');
+    //     }
+    // };
+    // console.log(underSArray);
+
+
+    // wordArray[]----Is the compWord indexed out individually by letter
+
+    // underSArray[]-----at same time. IF -space- put -space- ELSE put _
+    // this array is also responsible for displaying onscreen.
+
+
+    // Gamestarting variable.  Game can begin upon gamestate = true
+    var gameState = false;
+
+
+
+
+    // ******************************Buttons to begin game*********************************
 
     // Hiding Gameplay Buttons in Beginning
     $(".topicChoice").hide("fast", function(){
@@ -38,6 +89,11 @@ $(document).ready(function() {
         var randomNumber = Math.floor(Math.random() * movies.length);
         var compWord = movies[randomNumber];
         console.log(compWord);
+        // for loop---for every letter in compWord 
+        for ( j = 0; j < compWord.length; j++ ) {
+            wordArray.push(compWord[j]);
+        };
+        console.log(wordArray);
     });
 
     // Click artists button and computer chooses movie
@@ -45,6 +101,11 @@ $(document).ready(function() {
         var randomNumber = Math.floor(Math.random() * artists.length);
         var compWord = artists[randomNumber];
         console.log(compWord);
+        // for loop---for every letter in compWord 
+        for ( j = 0; j < compWord.length; j++ ) {
+            wordArray.push(compWord[j]);
+        };
+        console.log(wordArray);  
     });
 
     // Click artists button and computer chooses movie
@@ -52,17 +113,25 @@ $(document).ready(function() {
         var randomNumber = Math.floor(Math.random() * capitals.length);
         var compWord = capitals[randomNumber];
         console.log(compWord);
+        // for loop---for every letter in compWord 
+        for ( j = 0; j < compWord.length; j++ ) {
+            wordArray.push(compWord[j]);
+        };
+        console.log(wordArray);
     });
-    
-    // TEST REALM.  SMALL ARRAY TO CREATE WORKING CONDITIONS with Strange Syntax
-    testRealm = ["baby", "baby driver", "it's baby driver", "baby & driver"];
 
+    // Click test realm and computer chooses testword
     $("#testRealm").on("click", function(getTest) {
         var randomNumber = Math.floor(Math.random() * testRealm.length);
         var compWord = testRealm[randomNumber];
         console.log(compWord);
+        // for loop---for every letter in compWord 
+        for ( j = 0; j < compWord.length; j++ ) {
+            wordArray.push(compWord[j]);
+        };
+        console.log(wordArray);  
     });
-
+    
     // Buttons are Letters Array
     var letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
@@ -74,44 +143,72 @@ $(document).ready(function() {
       letterBtn.text(letters[i]);
       $(".lettersAreButtons").append(letterBtn);
     };
-    
-    // Display _____ for each letter
-    $(".topicChoice").on("click", function(displayUnderscore){
-        for ( var i = 0; i < compWord.length; i++ ) {
-            if (string.charAt(compWord[i]) === (" ")) {
-                $(".wordLengthDisplay").append(" ");
-            }
-            else {
-            $(".wordLengthDisplay").append("_");
-            }
+
+    // *****************GAME HAS BEGUN***************************
+
+    // This is supposed to convert any letters from wordArray to underSArray
+    var underSArray = function(operationUnderscore) {
+        for ( k = 0 ; k < wordArray.length; k++) {
+            underSArray[k].push(wordArray[k]);
+            underSArray[k].replace(/[^a-zA-Z]/g,'-');
+            
         }
-    });
-})
+    };
+    console.log(underSArray);
+    // Then we want to display the underSArray in div class="wordLengthDisplay"
+    // $(".wordLengthDisplay").text(underSArray)
+
+    // We need to have way to input letter to check against wordArray that has been changed to all UPPER CASE
+
+    // we can do this by having an on click event of the button
+    // each button has a text value already established---this is the attribute data-letter
+    // $(".letterChoiceButtons").on("click", function {
+        // FOR loop to check all indexes of wordArray against data-letter
+
+        // IF data-letter === wordArray[i] then
+        // replace underSArray[i] with data-letter;
+        // ELSE remainingWrong --;
+
+    // IF wordArray === underSArray
+        // then game is won!---- wins++;
+        // game is reset---Hide all buttons but start;
+        // return remainingWrong to 8
+        // clear gametime arrays
+    
+    // IF remainingWrong === 0
+        // then game is lost!>>>>>losses--;
+        // game is reset---Hide all buttons but start;
+        // return remainingWrong to 8;
+        // clear gametime arrays
 
 
 
 
-    // Here we are going to use a for loop to display _ for each character
-    // If the character is a -space- then we will display that instead.
-
-
-    // Key input will be run through for loop that checks the character at index iterator for compatibility against compWord
-    // Any matching letters will be displayed.
-    // If not matching add to wrong guess list
+    // })
 
 
 
 
+});
 
-    // create a loop to display a '_' for each letter of word unless there is a space in the word's string.
+// *************RIP CODE*******Failed and semifailed attempts************************
+//     // Display _____ for each letter
+//     for ( var i = 0; i < gameWord.length; i++ ) {
+//         if (string.charAt(gameWord[i]) === (" ")) {
+//             $(".wordLengthDisplay").append(" ");
+//         }
+//         else {
+//         $(".wordLengthDisplay").append("_");
+//         }
+//     }
+    
+// });
 
-    // we need a few more variables
+    // // for loop---for every letter in compWord 
+    // for ( j = 0; j < compWord.length; j++ ) {
+    //     wordArray.push(compWord[j]);
+    //     console.log(wordArray);
+        
 
-    // gamescore[w,l]
-
-    // if var wrongGuess = 6 then user loses round.  Add a loss to gamescore.
-
-    // if all letters are guessed and wrongGuess >= 5 then user wins round.  Add a win to gamescore.
-    // also need to display each correct letter, replacing the '_' from earlier.
-
-    // HOW DO I SPLIT A STRING!!!!!!!
+    // };
+    // console.log(wordArray);
